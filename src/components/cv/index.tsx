@@ -1,0 +1,105 @@
+'use client';
+import { useState } from 'react';
+
+import {Data} from '@/data';
+
+const Cv = (props: any) => {
+	const [experience, setExperience] = useState(Data.experience)
+	const [education, setEducation] = useState(Data.education)
+
+	const renderExperience = (experience) => {
+		return (
+			<div className={`border border-gray-600 rounded-xl p-5 mb-10 w-full`}>
+				<span className={`font-bold text-xl`}>{experience.year_start} - {experience.year_end}</span>
+				<h2 className={`font-black text-3xl`}>{experience.job_title}</h2>
+				<span className={`font-black text-2xl`}>{experience.company_name}</span>
+				<p>{experience.job_description}</p>
+		   </div>
+		)
+	}
+
+	const renderEducation = (education) => {
+		return (
+			<div className={`p-5 mb-10 w-full border border-gray-400 rounded-xl`}>
+				<span className={`font-bold text-xl`}>{education.year_conclusion}</span>
+				<h2 className={`font-black text-3xl`}>{education.description}</h2>
+				<span className={`font-black text-2xl`}>{education.institution}</span>
+			</div>
+		)
+	}
+
+
+	return (
+		<div className={`bg-white mt-5 p-10 m-10 rounded-xl grid grid-cols-3 gap-4`}>
+			<div className={`flex flex-col items-center`}>
+				<div className={`size-40 mb-5`}>
+					<img 
+	                    className={`rounded-full size-40 object-cover`}
+	                    src={'https://source.unsplash.com/random'}  
+	                    alt="Photo"
+	                />
+				</div>
+				<h1 className={`font-black text-5xl`}>{Data.first_name} {Data.last_name}</h1>
+				<h3 className={`font-bold text-xl`}>{Data.job}</h3>
+				<hr className={`w-full px-10 my-10 border-1 border-gray-400`}/>
+				<div className={`flex flex-col items-center rounded-xl bg-gray-200 p-10`}>
+					<span className={`font-bold mb-5`}>
+						{Data.mail}
+					</span>
+					<span className={`font-bold`}>
+						{Data.phone}
+					</span>
+				</div>
+				<div className={`flex flex-col items-center mt-5 w-full p-10`}>
+					<div className={`w-full my-2`}>
+						<span className={`font-bold`}>
+							Java
+						</span>
+						<div className="w-full bg-gray-200 rounded-full h-2.5">
+						  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: 45 + "%"}}></div>
+						</div>
+					</div>
+					<div className={`w-full m-2`}>
+						<span className={`font-bold`}>
+							Python
+						</span>
+						<div className="w-full bg-gray-200 rounded-full h-2.5">
+						  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: 45 + "%"}}></div>
+						</div>
+					</div>
+					<div className={`w-full m-2`}>
+						<span className={`font-bold`}>
+							PHP
+						</span>
+						<div className="w-full bg-gray-200 rounded-full h-2.5">
+						  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: 45 + "%"}}></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className={`col-span-2`}>
+				<div className={`flex flex-col items-center p-10`}>
+					<div className={`rounded-xl bg-gray-200 w-full p-5`}>
+						<p>
+						  In dolore in mollit magna exercitation labore quis officia esse labore in cupidatat nisi ullamco nulla. In dolore in mollit magna exercitation labore quis officia esse labore in cupidatat nisi ullamco nulla. In dolore in mollit magna exercitation labore quis officia esse labore in cupidatat nisi ullamco nulla.	
+						</p>
+					</div>
+					<hr className={`w-full px-10 my-10 border border-gray-400`}/>
+					<div className={`flex flex-col items-left w-full`}>
+						{Data.experience.map(exp => (
+							renderExperience(exp)
+						))}
+					</div>
+					<hr className={`w-full px-10 mb-10 border border-gray-400`}/>
+					<div className={`flex flex-col items-left w-full`}>
+						{Data.education.map(edu => (
+							renderEducation(edu)
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+export default Cv
