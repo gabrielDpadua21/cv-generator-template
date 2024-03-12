@@ -1,12 +1,10 @@
 'use client';
 import { useState } from 'react';
+import { MailIcon, PhoneIcon } from '@/components/icons'
 
 import {Data} from '@/data';
 
 const Cv = (props: any) => {
-	const [experience, setExperience] = useState(Data.experience)
-	const [education, setEducation] = useState(Data.education)
-
 	const renderExperience = (experience) => {
 		return (
 			<div className={`border border-gray-600 rounded-xl p-5 mb-10 w-full`}>
@@ -28,6 +26,19 @@ const Cv = (props: any) => {
 		)
 	}
 
+	const renderList = (list, color) => {
+		return (
+			<div className={`w-full my-2`}>
+				<span className={`font-bold`}>
+					{list.name}
+				</span>
+				<div className="w-full bg-gray-200 rounded-full h-2.5">
+				  <div className={`${color} h-2.5 rounded-full`} style={{width: (list.level * 25) + "%"}}></div>
+				</div>
+			</div>
+		)
+	}
+
 
 	return (
 		<div className={`bg-white mt-5 p-10 m-10 rounded-xl grid grid-cols-3 gap-4`}>
@@ -43,45 +54,37 @@ const Cv = (props: any) => {
 				<h3 className={`font-bold text-xl`}>{Data.job}</h3>
 				<hr className={`w-full px-10 my-10 border-1 border-gray-400`}/>
 				<div className={`flex flex-col items-center rounded-xl bg-gray-200 p-10`}>
-					<span className={`font-bold mb-5`}>
-						{Data.mail}
-					</span>
-					<span className={`font-bold`}>
-						{Data.phone}
-					</span>
+					<div className={`flex items-center justify-center mb-5`}>
+						{MailIcon}
+						<span className={`font-bold ml-5`}>
+							{Data.mail}
+						</span>
+					</div>
+					<div className={`flex items-center justify-center`}>
+						{PhoneIcon}
+						<span className={`font-bold ml-5`}>
+							{Data.phone}
+						</span>
+					</div>
 				</div>
+				<hr className={`w-full px-10 mt-10 border-1 border-gray-400`}/>
 				<div className={`flex flex-col items-center mt-5 w-full p-10`}>
-					<div className={`w-full my-2`}>
-						<span className={`font-bold`}>
-							Java
-						</span>
-						<div className="w-full bg-gray-200 rounded-full h-2.5">
-						  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: 45 + "%"}}></div>
-						</div>
-					</div>
-					<div className={`w-full m-2`}>
-						<span className={`font-bold`}>
-							Python
-						</span>
-						<div className="w-full bg-gray-200 rounded-full h-2.5">
-						  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: 45 + "%"}}></div>
-						</div>
-					</div>
-					<div className={`w-full m-2`}>
-						<span className={`font-bold`}>
-							PHP
-						</span>
-						<div className="w-full bg-gray-200 rounded-full h-2.5">
-						  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: 45 + "%"}}></div>
-						</div>
-					</div>
+					{Data.skills.map((skill) => (
+						renderList(skill, 'bg-blue-600')
+					))}
+				</div>
+				<hr className={`w-full px-10 border-1 border-gray-400`}/>
+				<div className={`flex flex-col items-center mt-5 w-full p-10`}>
+					{Data.languages.map((languages) => (
+						renderList(languages, 'bg-red-600')
+					))}
 				</div>
 			</div>
 			<div className={`col-span-2`}>
 				<div className={`flex flex-col items-center p-10`}>
 					<div className={`rounded-xl bg-gray-200 w-full p-5`}>
 						<p>
-						  In dolore in mollit magna exercitation labore quis officia esse labore in cupidatat nisi ullamco nulla. In dolore in mollit magna exercitation labore quis officia esse labore in cupidatat nisi ullamco nulla. In dolore in mollit magna exercitation labore quis officia esse labore in cupidatat nisi ullamco nulla.	
+						  {Data.description}	
 						</p>
 					</div>
 					<hr className={`w-full px-10 my-10 border border-gray-400`}/>

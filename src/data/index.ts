@@ -12,6 +12,11 @@ const Data = (
 				"year_conclusion": 2024,
 				"description": "Bachelor Computer Science",
 				"institution": "Facens"
+			},
+			{
+				"year_conclusion": 2024,
+				"description": "Bachelor Computer Science",
+				"institution": "Facens"
 			}
 		],
 		"experience": [
@@ -33,37 +38,37 @@ const Data = (
 		"languages": [
 			{
 				"name": "English",
-				"level": 3, // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 4, // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 			{
 				"name": "Spanish",
-				"level": 2, // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 3, // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 			{
 				"name": "Portuguese",
-				"level": 1, // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 2, // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 			{
 				"name": "Japonese",
-				"level": 0, // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 1, // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 		],
 		"skills": [
 			{
 				"name": "Java",
-				"level": 3 // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 4 // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 			{
 				"name": "Python",
-				"level": 2 // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 3 // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 			{
 				"name": "Golang",
-				"level": 1 // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 2 // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			},
 			{
 				"name": "JavaScript",
-				"level": 0 // levels is 0 begginer, 1 intermediary, 2 advanced and 3 fluent
+				"level": 1 // levels is 1 begginer, 2 intermediary, 3 advanced and 4 fluent
 			}
 		],
 		"extras": [],
